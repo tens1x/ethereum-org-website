@@ -247,7 +247,7 @@ Out[9]: AttributeDict({
 在没有交易之前，我们停留在零区块，所以我们给它一个交易。 从一个账户向另一个账户发送一些测试 ETH：
 
 ```python
-In [10]: tx_hash = w3.eth.sendTransaction({
+In [10]: tx_hash = w3.eth.send_transaction({
    'from': w3.eth.accounts[0],
    'to': w3.eth.accounts[1],
    'value': w3.toWei(3, 'ether')
@@ -263,7 +263,7 @@ In [10]: tx_hash = w3.eth.sendTransaction({
 我们的模拟环境会在一个新的区块中即时添加交易，所以我们可以立即查看交易：
 
 ```python
-In [11]: w3.eth.getTransaction(tx_hash)
+In [11]: w3.eth.get_transaction(tx_hash)
 Out[11]: AttributeDict({
    'hash': HexBytes('0x15e9fb95dc39...'),
    'blockNumber': 1,
@@ -280,10 +280,10 @@ Out[11]: AttributeDict({
 我们也可以通过检查两个相关帐户的余额，轻松验证此次交易是否成功。 三个 ETH 应从一个帐户转移到另一个帐户。
 
 ```python
-In [12]: w3.eth.getBalance(w3.eth.accounts[0])
+In [12]: w3.eth.get_balance(w3.eth.accounts[0])
 Out[12]: 999996999999999999979000
 
-In [13]: w3.eth.getBalance(w3.eth.accounts[1])
+In [13]: w3.eth.get_balance(w3.eth.accounts[1])
 Out[13]: 1000003000000000000000000
 ```
 
