@@ -247,7 +247,7 @@ Out[9]: AttributeDict({
 在没有交易之前，我们停留在零区块，所以我们给它一个交易。 从一个账户向另一个账户发送一些测试 ETH：
 
 ```python
-In [10]: tx_hash = w3.eth.sendTransaction({
+In [10]: tx_hash = w3.eth.send_transaction({
    'from': w3.eth.accounts[0],
    'to': w3.eth.accounts[1],
    'value': w3.toWei(3, 'ether')
